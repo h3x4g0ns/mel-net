@@ -2,7 +2,7 @@ from sklearn.semi_supervised import SelfTrainingClassifier
 import tensorflow as tf
 from tensorflow.keras import Model, Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
-from torch import dropout
+
 
 def ModifiedVGG(Model):
     def __init__(self, layer_activation, final_activation, dropout_rate, latent_dim, num_classes):
@@ -27,6 +27,7 @@ def ModifiedVGG(Model):
         self.fc1 = Dense(self.l, activation=self.al)
         self.fc2 = Dense(self.l, activation=self.al)
         self.o = Dense(self.nc, activation=self.af)
+
 
     def call(self, input):
         x = self.conv(input)
